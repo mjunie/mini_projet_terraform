@@ -10,10 +10,17 @@ Date de publication : le 16 Avril 2024
 LinkedIn : https://www.linkedin.com/in/
 
 ---
+# MIni projet terraform
+- Enoncé
+
+    ![Tux, the Linux mascot](/images/tpterraform.png)
+
 # Infrastructure as Code avec Terraform
 
-<img width="1200" alt="Terraform" src="https://github.com/Abdel-had/mini-projet-terraform/assets/101605739/890fb4c0-f3ad-4d91-b169-486369a47e5a">
+- Infrastructure
 
+    ![Tux, the Linux mascot](/images/illustration.png)
+  
 Ce projet utilise Terraform pour déployer une application web sur AWS, en provisionnant une instance EC2 avec Ubuntu Bionic, un volume EBS, une adresse IP publique et un groupe de sécurité.
 
 ## Structure du Projet
@@ -87,15 +94,18 @@ terraform destroy
 
 - Ne versionnez jamais vos clés privées ou vos fichiers d'état Terraform.
 
-## sauvegarde de l'etat de l'infrastructure
+## Sauvegarder de l'état de l'infrastructure
 
-  Dans le but de faciliter le travail en equipe vous pouvez directement sauvegarder votre infrastructure sur aws comme nous avons fait dans la section *terraform backend* du fichier main.tf qui se trouve dans le dossier *app* 
+  Dans le but de faciliter le travail en équipe vous pouvez directement sauvegarder votre infrastructure sur aws comme nous avons fait dans la section *terraform backend* du fichier main.tf qui se trouve dans le dossier *app* 
 
 ## appercu du resultat
 
 - EC2 instance.
 
-    ![Tux, the Linux mascot](/assets/images/tux.png)
+    ![Tux, the Linux mascot](/images/ec2.png)
+- Ngnix.
+
+    ![Tux, the Linux mascot](/images/resultterraform.png)
   
   ## Support
 
