@@ -74,7 +74,7 @@ Exemple de contenu pour `app/terraform.tfvars` :
 
 ```hcl
 instancetype = "t2.micro"
-ebs_size = 10
+ebs_size = 30
 sg_name = "app-sg"
 ```
 
