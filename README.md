@@ -1,5 +1,5 @@
 
-"Auteur" : Macougoum Junie
+Auteur : Macougoum Junie
 
 Contexte : Bootcamp DevOps - promotion 15
 
