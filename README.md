@@ -20,10 +20,10 @@ Ce projet utilise Terraform pour déployer une application web sur AWS, en provi
 
 Le projet est divisé en modules réutilisables pour faciliter la gestion et la maintenance de l'infrastructure :
 
-- `modules/ebs_volume`: Définit un volume EBS.
-- `modules/ec2_instance`: Configure une instance EC2 avec Ubuntu Bionic, installe nginx et utilise une clé SSH pour l'accès.
-- `modules/public_ip`: Assigne une adresse IP publique à l'instance EC2 et enregistre cette adresse dans `ip_ec2.txt`.
-- `modules/security_group`: Crée un groupe de sécurité qui autorise le trafic HTTP, HTTPS et SSH.
+- `modules/ebs_module: Définit un volume EBS.
+- `modules/ec2_module: Configure une instance EC2 avec Ubuntu Bionic, installe nginx et utilise une clé SSH pour l'accès.
+- `modules/public_ip_module: Assigne une adresse IP publique à l'instance EC2 et enregistre cette adresse dans `ip_ec2.txt`.
+- `modules/sg_module: Crée un groupe de sécurité qui autorise le trafic HTTP, HTTPS et SSH.
 - `app`: Dossier contenant la configuration de l'application qui utilise les modules pour déployer l'instance EC2.
 
 ## Prérequis
@@ -31,46 +31,33 @@ Le projet est divisé en modules réutilisables pour faciliter la gestion et la 
 - Terraform v0.12+ installé sur votre machine locale.
 - AWS CLI configuré avec les identifiants appropriés.
 - Un bucket S3 pour le backend de Terraform (déjà créé puis configuré dans `app/main.tf`).
-- Une clé SSH nommée `devops-abdelhad` doit être disponible et configurée dans AWS.
+- Une clé SSH nommée `devops-junie` doit être disponible et configurée dans AWS.
 
 ## Démarrage Rapide
 
 1. Clonez ce dépôt sur votre machine locale.
 
     ```
-    git clone https://github.com/Abdel-had/mini-projet-terraform.git
+    git clone https://github.com/mjunie/mini_projet_terraform.git
     ```
 
 2. Assurez-vous que vos identifiants AWS sont configurés correctement.
 
-    Sur Windows :
+   Rassurez vous de bien renseigner  access_key = "PUT YOUR OWN"  et secret_key = "PUT YOUR OWN" qui se trouvent dans le fichier main.tf du dossier app
 
-    ```ps1
-    $env:AWS_ACCESS_KEY_ID = "PUT_YOUR_OWN"
-    $env:AWS_SECRET_ACCESS_KEY = "PUT_YOUR_OWN"
-    ```
-
-    Sur Linux :
-
-    ```sh
-    export AWS_ACCESS_KEY_ID="PUT_YOUR_OWN"
-    export AWS_SECRET_ACCESS_KEY="PUT_YOUR_OWN"
-    ```
-
-
-3. Naviguez dans le dossier du projet (**app**) et initialisez Terraform avec la commande :
+4. Naviguez dans le dossier du projet (**app**) et initialisez Terraform avec la commande :
 
    ```sh
    terraform init
    ```
 
-4. Appliquez la configuration Terraform :
+5. Appliquez la configuration Terraform :
 
    ```sh
    terraform apply
    ```
 
-5. Confirmez les actions proposées par Terraform lorsque vous y êtes invité.
+6. Confirmez les actions proposées par Terraform lorsque vous y êtes invité en saisissant (**yes**)
 
 ## Configuration
 
@@ -99,8 +86,17 @@ terraform destroy
 ## Sécurité
 
 - Ne versionnez jamais vos clés privées ou vos fichiers d'état Terraform.
-- Utilisez des politiques IAM restrictives pour contrôler l'accès aux ressources AWS.
 
-## Support
+## sauvegarde de l'etat de l'infrastructure
+
+  Dans le but de faciliter le travail en equipe vous pouvez directement sauvegarder votre infrastructure sur aws comme nous avons fait dans la section *terraform backend* du fichier main.tf qui se trouve dans le dossier *app* 
+
+## appercu du resultat
+
+- EC2 instance.
+
+    ![Tux, the Linux mascot](/assets/images/tux.png)
+  
+  ## Support
 
 Si vous rencontrez des problèmes ou avez des questions, veuillez ouvrir une issue dans le dépôt du projet.
